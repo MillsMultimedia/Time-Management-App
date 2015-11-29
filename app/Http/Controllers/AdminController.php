@@ -19,9 +19,9 @@ class AdminController extends Controller
     public function getAccount($id)
     {
         $updates = \App\Update::where('account_id', $id)->get();
-        //$account = \App\Account::where('id', $id);
+        $account = \App\Account::where('id', $id)->first();
 
-        return view('layouts/update')->with('updates', $updates);
+        return view('layouts/update')->with('updates', $updates)->with('account', $account);
     }
 
 }

@@ -1,0 +1,24 @@
+table td {
+	vertical-align: middle;
+}
+
+input {
+	width:90%;
+}
+
+.delete_btn {
+	width: 20px;
+	height: 20px;
+	padding: 0;
+	font-size: 75%;
+}
+
+#add_account, #add_update {
+	color: #337ab7;
+	text-decoration:underline;
+	margin-left:8px;
+}
+
+.add_new {
+	display: none;
+}

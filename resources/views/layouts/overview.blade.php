@@ -20,12 +20,13 @@ such as a page specific styesheets.
 @section('content')
 <h1>Overview</h1>
 
-<table class="table table-striped">
+<table class="table table-striped" id="overview_table">
     <tr>
         <th>Business Name</th>
         <th>Usage</th>
         <th>Remaining</th>
         <th>Package Hours</th>
+        <th width="50px;"></th>
     </tr>
 
     @foreach($accounts as $account) 
@@ -34,12 +35,23 @@ such as a page specific styesheets.
             <td>USAGE</td>
             <td>REMAIN</td>
             <td>{{ $account->package_hours }}</td>
+            <td><button name="{{$account->id}}" class="btn btn-danger delete_btn">X</button>
         </tr>
     @endforeach 
+
+    <tr class="add_new">
+        <td><input type="text" name="name" id="name" value="name"/></td>
+        <td><input type="text" name="pkg_hours" id="pkg_hours" value="package hours"/></td>
+        <td><input type="text" name="hrs_used" id="hrs_used" value="0"/></td>
+        <td></td>
+        <td><button id="add_submit" class="btn btn-primary">Add</button></td>
+    </tr>
+
 </table>
+<p id="add_account">Add New Account</p>
 
 <h3 class="col-xs-12 col-sm-6">Total Hours This Month: 0.00</h3>
-<button class="btn btn-primary pull-right">Reset All</button>
+<!--<button class="btn btn-primary pull-right">Reset All</button>-->
 @stop
   
 
