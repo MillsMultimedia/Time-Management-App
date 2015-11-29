@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Account extends Model
 {
-	public function edit() {
-		return $this->hasMany('\App\Edit');
-	}
+	// public function update() {
+	// 	return $this->hasMany('\App\Update');
+	// }
 }

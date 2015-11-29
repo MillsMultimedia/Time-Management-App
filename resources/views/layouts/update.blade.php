@@ -18,7 +18,13 @@ such as a page specific styesheets.
 
 
 @section('content')
-<h1>{{ $account->name }}</h1>
+
+	<h1>Update Page</h1>
+
+	@foreach ($updates as $update)
+		{{ $update->description }} <br>
+	@endforeach
+
 @stop
   
 

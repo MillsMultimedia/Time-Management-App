@@ -18,12 +18,10 @@ class AdminController extends Controller
 
     public function getAccount($id)
     {
-        $updates = \App\Update::where('account_id', $id);
+        $updates = \App\Update::where('account_id', $id)->get();
         //$account = \App\Account::where('id', $id);
 
-        //return view('layouts/update')->with('updates', $updates)->with('account', $account);
-
-        dump($updates);
+        return view('layouts/update')->with('updates', $updates);
     }
 
 }
