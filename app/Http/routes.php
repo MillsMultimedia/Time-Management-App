@@ -15,9 +15,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/practice', function() {
-	//For testing and practice
+Route::get('/admin', 'AdminController@getAdmin');
+
+Route::get('/admin/{id}', 'AdminController@getAccount');
+
+Route::get('/client', function () {
+    return view('layouts/client');
 });
+
+/*
+|--------------------------------------------------------------------------
+| Testing Purposes Only 
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/practice', function() {
+    //For testing and practice
+});
+
 
 
 //test DB route
@@ -55,3 +70,15 @@ Route::get('/debug', function() {
     echo '</pre>';
 
 });
+
+if(App::environment('local')) {
+
+    Route::get('/drop', function() {
+
+        DB::statement('DROP database p4tracker');
+        DB::statement('CREATE database p4tracker');
+
+        return 'Dropped p4tracker; created p4tracker.';
+    });
+
+};
