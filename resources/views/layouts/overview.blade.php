@@ -23,18 +23,18 @@ such as a page specific styesheets.
 <table class="table table-striped" id="overview_table">
     <tr>
         <th>Business Name</th>
+        <th>Package Hours</th>
         <th>Usage</th>
         <th>Remaining</th>
-        <th>Package Hours</th>
         <th width="50px;"></th>
     </tr>
 
     @foreach($accounts as $account) 
         <tr>
             <td><a href="/admin/{{$account->id}}">{{ $account->name }}</a></td>
-            <td>USAGE</td>
-            <td>REMAIN</td>
             <td>{{ $account->package_hours }}</td>
+            <td>{{ $total_hours[$account->id] }}</td>
+            <td>{{ $account->package_hours - $total_hours[$account->id] }}</td>
             <td><button name="{{$account->id}}" class="btn btn-danger delete_btn">X</button>
         </tr>
     @endforeach 

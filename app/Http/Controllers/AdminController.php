@@ -18,10 +18,23 @@ class AdminController extends Controller
 
     public function getAccount($id)
     {
-        $updates = \App\Update::where('account_id', $id)->get();
-        $account = \App\Account::where('id', $id)->first();
+        $tasks = \App\Task::where('account_id', $id)->with('account')->get();
 
-        return view('layouts/update')->with('updates', $updates)->with('account', $account);
+        // $total_hours = 0;
+
+        // foreach ($tasks as $task)
+        // {
+        //     $total_hours += $task->hours_spent;
+        // }
+
+        // $remaining_hours = $tasks->first()->account->package_hours - $total_hours;
+
+        return view('layouts/update')->with([
+            'tasks'=>$tasks,
+            //'total_hours'=>$total_hours,
+            'package_hours'=>$tasks->first()->account->package_hours,
+            ]);
+
     }
 
 }

@@ -19,9 +19,7 @@ Route::get('/admin', 'AdminController@getAdmin');
 
 Route::get('/admin/{id}', 'AdminController@getAccount');
 
-Route::get('/client', function () {
-    return view('layouts/client');
-});
+Route::get('/client', 'ClientController@getClient');
 
 /*
 |--------------------------------------------------------------------------

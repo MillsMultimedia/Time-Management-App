@@ -19,7 +19,7 @@ such as a page specific styesheets.
 
 @section('content')
 
-	<h1>{{ $account->name }}</h1>
+	<h1>{{ $tasks[0]->account->name }}</h1>
 
 	<table class="table table-striped">
 	    <tr>
@@ -29,12 +29,12 @@ such as a page specific styesheets.
 	        <th width="50px;"></th>
 	    </tr>
 
-	    @foreach($updates as $update) 
+	    @foreach($tasks as $task) 
 	        <tr>
-	            <td>{{ date('F d, Y', strtotime($update->updated_at)) }}</td>
-	            <td>{{ $update->description }}</td>
-	            <td>{{ $update->hours_spent }}</td>
-	            <td><button name="{{ $update->account_id }}" class="btn btn-danger delete_btn">X</button>
+	            <td>{{ date('F d, Y', strtotime($task->updated_at)) }}</td>
+	            <td>{{ $task->description }}</td>
+	            <td>{{ $task->hours_spent }}</td>
+	            <td><button name="{{ $task->account_id }}" class="btn btn-danger delete_btn">Edit</button></td>
 	        </tr>
 	    @endforeach 
 
@@ -49,8 +49,8 @@ such as a page specific styesheets.
 
 	<p id="add_update">Add New Update</p>
 
-	<h3 class="col-xs-12 col-sm-6">Hours Used This Month: 0.00</h3>
-	<h3 class="col-xs-12 col-sm-6">Hours Remaining: 0.00</h3>
+	<h3 class="col-xs-12 col-sm-6">Hours Used This Month: {{ $total_hours[$tasks[0]->account->id] }}</h3>
+	<h3 class="col-xs-12 col-sm-6">Hours Remaining: {{ $package_hours - $total_hours[$tasks[0]->account->id] }}</h3>
 
 	<a href="/admin">Overview</a>
 @stop

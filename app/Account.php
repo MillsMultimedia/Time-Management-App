@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Account extends Model
 {
-	// public function update() {
-	// 	return $this->hasMany('\App\Update');
-	// }
+	public function task() {
+		return $this->hasMany('\App\Task');
+	}
 }
