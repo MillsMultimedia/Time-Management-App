@@ -19,6 +19,8 @@ Route::get('/admin', 'AdminController@getAdmin');
 
 Route::get('/admin/{id}', 'AdminController@getAccount');
 
+Route::post('/admin', 'AdminController@postAccount');
+
 Route::get('/add_account', function(){
     return view('/layouts/add_account');
 } );

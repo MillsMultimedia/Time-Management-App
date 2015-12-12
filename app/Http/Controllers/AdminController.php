@@ -37,4 +37,24 @@ class AdminController extends Controller
 
     }
 
+    public function postAccount(Request $request)
+    {
+        
+        // echo $request->description."<br>";
+        // echo $request->hrs_used."<br>";
+        // echo $request->account_id;
+
+        \DB::table('tasks')->insert([
+            'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            'description' => $request->description,
+            'hours_spent' => $request->hrs_used,
+            'account_id' => $request->account_id,
+            'user_id' => $request->account_id,
+        ]);
+
+        return \Redirect::to('/admin/'.$request->account_id );
+
+    }
+
 }
