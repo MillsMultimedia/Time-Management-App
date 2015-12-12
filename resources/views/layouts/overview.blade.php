@@ -48,7 +48,8 @@ such as a page specific styesheets.
     </tr>
 
 </table>
-<p id="add_account">Add New Account</p>
+
+<a href="/add_account">Add New Account</a>
 
 <h3 class="col-xs-12 col-sm-6">Total Hours This Month: 0.00</h3>
 <!--<button class="btn btn-primary pull-right">Reset All</button>-->

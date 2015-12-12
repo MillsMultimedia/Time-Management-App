@@ -19,7 +19,34 @@ Route::get('/admin', 'AdminController@getAdmin');
 
 Route::get('/admin/{id}', 'AdminController@getAccount');
 
+Route::get('/add_account', function(){
+    return view('/layouts/add_account');
+} );
+
 Route::get('/client', 'ClientController@getClient');
+
+
+/*
+|--------------------------------------------------------------------------
+| Authentication Routes
+|--------------------------------------------------------------------------
+*/
+
+# Show login form
+Route::get('/login', 'Auth\AuthController@getLogin');
+
+# Process login form
+Route::post('/login', 'Auth\AuthController@postLogin');
+
+# Process logout
+Route::get('/logout', 'Auth\AuthController@getLogout');
+
+# Show registration form
+Route::get('/register', 'Auth\AuthController@getRegister');
+
+# Process registration form
+Route::post('/register', 'Auth\AuthController@postRegister');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -80,3 +107,19 @@ if(App::environment('local')) {
     });
 
 };
+
+Route::get('/confirm-login-worked', function() {
+
+    # You may access the authenticated user via the Auth facade
+    $user = Auth::user();
+
+    if($user) {
+        echo 'You are logged in.';
+        dump($user->toArray());
+    } else {
+        echo 'You are not logged in.';
+    }
+
+    return;
+
+});

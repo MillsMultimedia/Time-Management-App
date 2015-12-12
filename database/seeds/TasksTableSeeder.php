@@ -18,6 +18,7 @@ class TasksTableSeeder extends Seeder
             'description' => 'Added photo to About Us page',
             'hours_spent' => .25,
             'account_id' => $account_id,
+            'user_id' => $account_id,
         ]);
 
         DB::table('tasks')->insert([
@@ -26,6 +27,7 @@ class TasksTableSeeder extends Seeder
             'description' => 'Added page for contact information',
             'hours_spent' => 1.0,
             'account_id' => $account_id,
+            'user_id' => $account_id,
         ]);
 
         $account_id = \App\Account::where('name', '=', 'FRESH 15K')->pluck('id');
@@ -35,6 +37,7 @@ class TasksTableSeeder extends Seeder
             'description' => 'Added logos to sponsor page',
             'hours_spent' => .5,
             'account_id' => $account_id,
+            'user_id' => $account_id,
         ]);
 
         DB::table('tasks')->insert([
@@ -43,6 +46,7 @@ class TasksTableSeeder extends Seeder
             'description' => 'Updated course maps',
             'hours_spent' => 1.25,
             'account_id' => $account_id,
+            'user_id' => $account_id,
         ]);
 
         DB::table('tasks')->insert([
@@ -51,6 +55,7 @@ class TasksTableSeeder extends Seeder
             'description' => 'Registration form: build and testing',
             'hours_spent' => 4.75,
             'account_id' => $account_id,
+            'user_id' => $account_id,
         ]);
 
         $account_id = \App\Account::where('name', '=', 'The Brand Mentors')->pluck('id');
@@ -60,6 +65,7 @@ class TasksTableSeeder extends Seeder
             'description' => 'Updated servers with sudo user for added security',
             'hours_spent' => .75,
             'account_id' => $account_id,
+            'user_id' => 1,
         ]);
     }
 }
