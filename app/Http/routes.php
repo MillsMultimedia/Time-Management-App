@@ -17,9 +17,11 @@ Route::get('/', function () {
 
 Route::get('/admin', 'AdminController@getAdmin');
 
-Route::get('/admin/{id}', 'AdminController@getAccount');
+Route::get('/admin/{id}', 'AdminController@getTasks');
 
-Route::post('/admin', 'AdminController@postAccount');
+Route::post('/admin', 'AdminController@postTask');
+
+Route::post('/admin/edit', 'AdminController@updateTask');
 
 Route::get('/add_account', function(){
     return view('/layouts/add_account');
