@@ -14,7 +14,7 @@
             </ul>
         @endif
 
-        <h1>Register Account</h1>
+        <h1>Register User</h1>
 
         <form method='POST' action='/add_account'>
             {!! csrf_field() !!}
@@ -25,16 +25,24 @@
             </div>
 
             <div class='form-group'>
-                <label for='package_hours'>Package</label><br>
-                <select name='package_hours' id='package_hours'>
-                    <option>--select package--</option>
-                    <option value="10">Package 1: 10hrs</option>
-                    <option value="15">Package 2: 15hrs</option>
-                    <option value="20">Package 3: 20hrs</option>
-                </select>
+                <label for='email'>Email</label><br>
+                <input type='text' name='email' id='email' value='{{ old('email') }}'>
             </div>
 
-            
+            <div class='form-group'>
+                <label for='password'>Password</label><br>
+                <input type='password' name='password' id='password'>
+            </div>
+
+            <div class='form-group'>
+                <label for='password_confirmation'>Confirm Password</label><br>
+                <input type='password' name='password_confirmation' id='password_confirmation'>
+            </div>
+
+            <div class='form-group'>
+                <label for='associated_account'>Associated Account</label><br>
+                <input type='text' name='associated_account' id='associated_account'>
+            </div>
 
             <button type='submit' class='btn btn-primary'>Register</button>
 

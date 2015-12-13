@@ -27,11 +27,25 @@ class AdminController extends Controller
      */
     public function getTasks($id)
     {
-        $tasks = \App\Task::where('account_id', $id)->with('account')->get();
+        $tasks = \App\Task::where('account_id', '=', $id)->with('account')->get();
 
-        return view('layouts/update')->with([
+        $account = \App\Account::where('id', '=', $id)->first();
+        
+        $package_hours = $account->package_hours;
+
+        $counter = count($tasks);
+
+        if ($counter == 0)
+            $has_tasks = false;
+        else
+            $has_tasks = true;
+
+
+       return view('layouts/update')->with([
+            'has_tasks'=>$has_tasks,
             'tasks'=>$tasks,
-            'package_hours'=>$tasks->first()->account->package_hours,
+            'package_hours'=>$package_hours,
+            'account'=>$account,
             ]);
 
     }
@@ -42,7 +56,7 @@ class AdminController extends Controller
      */
     public function postTask(Request $request)
     {
-        
+
         \DB::table('tasks')->insert([
             'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
@@ -81,5 +95,24 @@ class AdminController extends Controller
        \DB::table('tasks')->where('id', '=', $task_id)->delete();
 
        return \Redirect::to('/admin/'.$acct_id);
+    }
+
+     /**
+     * Adds a new account from the admin overview
+     * 
+     */
+    public function postAccount(Request $request)
+    {
+        
+        \DB::table('accounts')->insert([
+            'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            'name' => $request->name,
+            'package_hours' => $request->package_hours,
+        ]);
+
+        //redirects to admin view with refreshed list of accounts
+        return \Redirect::to('/admin/');
+
     }
 }

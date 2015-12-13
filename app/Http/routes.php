@@ -25,9 +25,7 @@ Route::post('/admin/edit', 'AdminController@updateTask');
 
 Route::get('/admin/delete/{acct_id}/{task_id}', 'AdminController@deleteTask');
 
-Route::get('/add_account', function(){
-    return view('/layouts/add_account');
-} );
+Route::post('/admin/add_account', 'AdminController@postAccount');
 
 Route::get('/client', 'ClientController@getClient');
 

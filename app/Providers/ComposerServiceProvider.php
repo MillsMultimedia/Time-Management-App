@@ -38,7 +38,7 @@ class ComposerServiceProvider extends ServiceProvider
             // if ( USER ID == 0)
             //     $admin = true;
             // else
-                $admin = false;
+                $admin = true;
 
             //send account hourly usage and admin boolean to all views
             $view->with('total_hours', $total_hours)->with('admin', $admin);

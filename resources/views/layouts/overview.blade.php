@@ -27,32 +27,63 @@ such as a page specific styesheets.
         <th>Usage</th>
         <th>Remaining</th>
         <th width="50px;"></th>
+        <th width="50px;"></th>
     </tr>
 
     @foreach($accounts as $account) 
-        <tr>
+        <tr id="{{ $account->id }}">
             <td><a href="/admin/{{$account->id}}">{{ $account->name }}</a></td>
             <td>{{ $account->package_hours }}</td>
             <td>{{ $total_hours[$account->id] }}</td>
             <td>{{ $account->package_hours - $total_hours[$account->id] }}</td>
-            <td><button name="{{$account->id}}" class="btn btn-danger delete_btn">X</button>
+            <td><button name="{{$account->id}}" class="btn btn-warning edit_acct">edit</button>
+            <td><button name="{{$account->id}}" class="btn btn-danger delete_acct">delete</button>
         </tr>
     @endforeach 
 
     <tr class="add_new">
-        <td><input type="text" name="name" id="name" value="name"/></td>
-        <td><input type="text" name="pkg_hours" id="pkg_hours" value="package hours"/></td>
-        <td><input type="text" name="hrs_used" id="hrs_used" value="0"/></td>
-        <td></td>
-        <td><button id="add_submit" class="btn btn-primary">Add</button></td>
+        <form method='POST' action='/admin/add_account'>
+            {!! csrf_field() !!}
+            <td><input type="text" name="name" id="name" value="name"/></td>
+            <td>
+                <select name='package_hours' id='package_hours'>
+                    <option>--select package--</option>
+                    <option value="10">Package 1: 10hrs</option>
+                    <option value="15">Package 2: 15hrs</option>
+                    <option value="20">Package 3: 20hrs</option>
+                </select>
+            </td>
+            <td><span class="cancel_btn">Cancel</span></td>
+            <td></td>
+            <td></td>
+            <td><button type="submit" id="add_submit" class="btn btn-primary">Add</button></td>
+        </form>
+    </tr>
+
+    <tr class="edit_account">
+        <form method='POST' action='/admin/edit_account'>
+            {!! csrf_field() !!}
+            <td><input type="text" name="edit_name" id="edit_name"/></td>
+            <td>
+                <select name='edit_package' id='edit_package'>
+                    <option>--select package--</option>
+                    <option value="10">Package 1: 10hrs</option>
+                    <option value="15">Package 2: 15hrs</option>
+                    <option value="20">Package 3: 20hrs</option>
+                </select>
+            </td>
+            <td><span class="cancel_btn">Cancel</span></td>
+            <td></td>
+            <td></td>
+            <td><button type="submit" id="edit_submit" class="btn btn-primary">+</button></td>
+        </form>
     </tr>
 
 </table>
 
-<a href="/add_account">Add New Account</a>
+<p id="add_account">Add New Account</p>
 
-<h3 class="col-xs-12 col-sm-6">Total Hours This Month: 0.00</h3>
-<!--<button class="btn btn-primary pull-right">Reset All</button>-->
+<button class="btn btn-primary pull-right">Reset All</button>
 @stop
   
 
