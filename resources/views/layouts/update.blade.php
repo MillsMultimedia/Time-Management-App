@@ -27,6 +27,7 @@ such as a page specific styesheets.
 		        <th>Description</th>
 		        <th>Hours Spent</th>
 		        <th width="50px;"></th>
+		        <th width="50px;"></th>
 		    </tr>
 
 		    @foreach($tasks as $task) 
@@ -34,7 +35,8 @@ such as a page specific styesheets.
 		            <td>{{ date('F d, Y', strtotime($task->updated_at)) }}</td>
 		            <td>{{ $task->description }}</td>
 		            <td>{{ $task->hours_spent }}</td>
-		            <td><button name="{{ $task->id }}" class="btn btn-danger edit_btn">Edit</button></td>
+		            <td><button name="{{ $task->id }}" class="btn btn-warning edit_btn">Edit</button></td>
+		            <td><button name="{{ $task->id }}" data-account="{{ $task->account_id }}" class="btn btn-danger delete_btn">Delete</button></td>
 		        </tr>
 		    @endforeach 
 
@@ -45,6 +47,7 @@ such as a page specific styesheets.
 			        <td><input type="text" name="description" id="description" /></td>
 			        <td><input type="text" name="hrs_used" id="hrs_used" /></td>
 			        <td><button type="submit" class="btn btn-primary">Add</button></td>
+			        <td></td>
 			        <input type="hidden" name="account_id" value="{{ $task->account_id }}"/>
 				</form>
 		    </tr>
@@ -56,6 +59,7 @@ such as a page specific styesheets.
 			        <td><input type="text" name="edit_desc" id="edit_desc" /></td>
 			        <td><input type="text" name="edit_hrs" id="edit_hrs" /></td>
 			        <td><button type="submit" class="btn btn-primary">+</button></td>
+			        <td></td>
 			        <input type="hidden" name="account_id" value="{{ $task->account_id }}"/>
 			        <input type="hidden" name="task_id" value="{{ $task->id }}"/>
 				</form>

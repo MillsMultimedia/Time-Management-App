@@ -23,6 +23,8 @@ Route::post('/admin', 'AdminController@postTask');
 
 Route::post('/admin/edit', 'AdminController@updateTask');
 
+Route::get('/admin/delete/{acct_id}/{task_id}', 'AdminController@deleteTask');
+
 Route::get('/add_account', function(){
     return view('/layouts/add_account');
 } );

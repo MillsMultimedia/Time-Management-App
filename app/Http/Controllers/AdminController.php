@@ -75,4 +75,11 @@ class AdminController extends Controller
 
     }
 
+    public function deleteTask($acct_id, $task_id)
+    {
+
+       \DB::table('tasks')->where('id', '=', $task_id)->delete();
+
+       return \Redirect::to('/admin/'.$acct_id);
+    }
 }

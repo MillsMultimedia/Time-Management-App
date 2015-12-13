@@ -43,4 +43,11 @@ $('#cancel_btn').click( function() {
 	location.reload(true);
 });
 
+$('.delete_btn').click( function(evt) {
+	var confirm = prompt("WARNING: You are about to delete a task. Type DELETE to proceed");
+
+	if (confirm == 'DELETE')
+		window.location.replace("/admin/delete/"+$(this).attr('data-account')+"/"+$(this).attr('name'));
+});
+
 }); //end document ready
