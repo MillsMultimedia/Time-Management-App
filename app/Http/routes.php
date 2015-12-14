@@ -15,19 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin', 'AdminController@getAdmin');
-
-Route::get('/admin/{id}', 'AdminController@getTasks');
-
-Route::post('/admin', 'AdminController@postTask');
-
-Route::post('/admin/edit', 'AdminController@updateTask');
-
-Route::get('/admin/delete/{acct_id}/{task_id}', 'AdminController@deleteTask');
-
-Route::post('/admin/add_account', 'AdminController@postAccount');
-
-Route::get('/client', 'ClientController@getClient');
 
 
 /*
@@ -60,6 +47,9 @@ Route::post('/register', 'Auth\AuthController@postRegister');
 
 Route::get('/practice', function() {
     //For testing and practice
+    $tags = \App\Task::get();
+
+    dump($tags);
 });
 
 

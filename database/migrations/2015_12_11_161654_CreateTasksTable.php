@@ -21,11 +21,6 @@ class CreateTasksTable extends Migration
             $table->string('description');
             $table->double('hours_spent', 6, 2);
 
-            $table->integer('account_id')->unsigned();
-            $table->foreign('account_id')->references('id')->on('accounts');
-
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

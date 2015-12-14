@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
-     public function account() {
-     	return $this->belongsTo('\App\Account');
+     public function user() 
+     {
+     	return $this->belongsToMany('\App\User')->withTimestamps();
      }
+     
 }
