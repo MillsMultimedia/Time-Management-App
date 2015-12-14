@@ -4,8 +4,7 @@
 
 <div class='col-md-4 col-md-offset-4 col-sm-12 col-sm-offset-0'>
     
-    @if($admin)
-    
+  
         @if(count($errors) > 0)
             <ul class='errors'>
                 @foreach ($errors->all() as $error)
@@ -47,13 +46,6 @@
             <button type='submit' class='btn btn-primary'>Register</button>
 
         </form>
-
-    @else
-        <h3 class='text-center'>Sorry, it appears you have reached an unauthorized page.</h3>
-
-        <p class='text-center'>Please <a href='/login'>log in</a> or return to the <a href='/'>homepage</a>.</p>
-
-    @endif
 
 </div>
 

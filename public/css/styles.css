@@ -26,3 +26,13 @@ input {
 .add_new, .edit_task, .edit_account {
 	display: none;
 }
+
+.flash_message {
+	width: 90%;
+	margin: 0 auto;
+	color: #fff;
+	background-color: #337ab7;
+	border-radius: 0 0 8px 8px;
+	text-align: center;
+	padding: 5px;
+}

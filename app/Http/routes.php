@@ -11,11 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'WelcomeController@getIndex');
+
+Route::group(['middleware' => 'auth'], function() {
+
+    Route::get('/tasks/{id}', 'TaskController@getTasks');
+    Route::post('/tasks/{id}', 'TaskController@addTask');
+    Route::post('/tasks/edit/{id}', 'TaskController@editTask');
+
 });
-
-
 
 /*
 |--------------------------------------------------------------------------
