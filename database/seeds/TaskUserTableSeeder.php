@@ -16,7 +16,7 @@ class TaskUserTableSeeder extends Seeder
         $users =[
             'FRESH 15K' => [3, 4],
             'The Brand Mentors' => [5, 6],
-            //'BBB San Francisco' => [1, 2]
+            'Admin' => [1, 2, 3, 4, 5, 6]
         ];
 
         # Now loop through the above array, creating a new pivot for each book to tag

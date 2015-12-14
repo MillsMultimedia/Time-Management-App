@@ -47,9 +47,7 @@ Route::post('/register', 'Auth\AuthController@postRegister');
 
 Route::get('/practice', function() {
     //For testing and practice
-    $tags = \App\Task::get();
-
-    dump($tags);
+    return view('layouts/tasklist');
 });
 
 
