@@ -14,7 +14,7 @@ class ComposerServiceProvider extends ServiceProvider
     public function boot()
     {
         
-        //calculate hours used and return to all views
+
     }
 
     /**

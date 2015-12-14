@@ -26,7 +26,10 @@
 	<section class='container'>
 	        {{-- Main page content will be yielded here --}}
 	        @yield('content')
+
+	        <a href="/logout" class="pull-right">Log Out</a>
 	</section>
+
 
 	<!-- LOAD SCRIPTS -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>

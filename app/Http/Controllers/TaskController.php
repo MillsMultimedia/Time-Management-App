@@ -18,6 +18,12 @@ class TaskController extends Controller
     {
         $user_id = \Auth::user()->id;
 
+        //check if user is admin
+        if ($user_id == 1)
+            $is_admin = true;
+        else
+            $is_admin = false;
+
 
         //check if logged in user is on another user's page
         if ($user_id == $id || $user_id == 1)
@@ -26,14 +32,15 @@ class TaskController extends Controller
             return redirect()->to('/tasks/'.$user_id);
 
 
-        if( isset($user) )
-            $tasks = $user->tasks;
-        else if ($id == 1)
-            \Session::flash('flash_message', 'Admin User');
-        else
-            return "This user does not exist";
 
-        return view('layouts/tasklist')->with('user', $user)->with('tasks', $tasks);
+        $tasks = $user->tasks;
+
+        return view('layouts/tasklist')->with([
+                            'user' => $user,
+                            'tasks' => $tasks,
+                            'is_admin' => $is_admin,
+                            'total_hours' => 0,
+                            ]);
     }
 
     /**
@@ -64,20 +71,28 @@ class TaskController extends Controller
     public function editTask(Request $request, $id)
     {
 
-        // $task = \App\Task::where('id', '=', $request->task_id)->first();
-        // $task->updated_at = \Carbon\Carbon::now()->toDateTimeString();
-        // $task->description = $request->edit_desc;
-        // $task->hours_spent = $request->edit_hrs;
-        // $task->save();
-
-        \DB::table('tasks')->where('id', '=', $request->task_id)->update( array(
-            'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
-            'description' => $request->edit_desc,
-            'hours_spent' => $request->edit_hrs,
-        ));
+        $task = \App\Task::find($request->task_id);
+        $task->updated_at = \Carbon\Carbon::now()->toDateTimeString();
+        $task->description = $request->edit_desc;
+        $task->hours_spent = $request->edit_hrs;
+        $task->save();
 
         return redirect()->to('/tasks/'.$id);
 
+    }
+
+    public function deleteTask($id, $task)
+    {
+        $task = \App\Task::find($task);
+
+        if($task->user())
+            $task->user()->detach();
+
+        $task->delete();
+
+        \Session::flash('flash_message', 'Task deleted.');
+       
+       return \Redirect::to('/tasks/'.$id);
     }
 
 }

@@ -19,6 +19,11 @@
             {!! csrf_field() !!}
 
             <div class='form-group'>
+                <label for='business_name'>Business Name</label><br>
+                <input type='text' name='business_name' id='business_name'>
+            </div>
+
+            <div class='form-group'>
                 <label for='name'>Name</label><br>
                 <input type='text' name='name' id='name' value='{{ old('name') }}'>
             </div>
@@ -36,11 +41,6 @@
             <div class='form-group'>
                 <label for='password_confirmation'>Confirm Password</label><br>
                 <input type='password' name='password_confirmation' id='password_confirmation'>
-            </div>
-
-            <div class='form-group'>
-                <label for='associated_account'>Associated Account</label><br>
-                <input type='text' name='associated_account' id='associated_account'>
             </div>
 
             <button type='submit' class='btn btn-primary'>Register</button>

@@ -10,5 +10,5 @@ class Task extends Model
      {
      	return $this->belongsToMany('\App\User')->withTimestamps();
      }
-   
+  
 }

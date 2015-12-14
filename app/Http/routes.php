@@ -12,12 +12,18 @@
 */
 
 Route::get('/', 'WelcomeController@getIndex');
+Route::get('/home', 'WelcomeController@getIndex');
 
 Route::group(['middleware' => 'auth'], function() {
 
     Route::get('/tasks/{id}', 'TaskController@getTasks');
     Route::post('/tasks/{id}', 'TaskController@addTask');
     Route::post('/tasks/edit/{id}', 'TaskController@editTask');
+    Route::get('tasks/delete/{id}/{task}', 'TaskController@deleteTask');
+
+    Route::get('/admin', 'AdminController@getIndex');
+    Route::post('/admin/edit', 'AdminController@editUser');
+    Route::get('/admin/delete/{id}', 'AdminController@deleteUser');
 
 });
 
