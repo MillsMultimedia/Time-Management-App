@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 
 class AdminController extends Controller
 {
+
     /**
      * Display a listing of the user accounts.
      *
@@ -16,20 +17,17 @@ class AdminController extends Controller
     public function getIndex()
     {
         
-        //Needs some sort of authorization for admin use only
+       
+        if (\Auth::user()->id != 1)
+        {
+            \Session::flash('flash_message', 'You have tried to reach an unauthorized page.');
+            return redirect()->to('/');
+        }
 
 
+        $users = \App\User::get();
 
-        
-        // if (\Auth::user()->id != 1)
-        // {
-        //     \Session::flash('flash_message', 'You have tried to reach an unauthorized page.');
-        //     return redirect()->to('/');
-        // }
-
-        $accounts = \App\User::get();
-
-        return view('layouts/overview')->with('accounts', $accounts);
+        return view('layouts/overview')->with('users', $users);
     }
 
 
@@ -44,6 +42,7 @@ class AdminController extends Controller
         $user->name = $request->edit_contact;
         $user->business_name = $request->edit_name;
         $user->email = $request->edit_email;
+        $user->package_hours = $request->edit_package;
         $user->save();
 
         return redirect()->to('/admin');

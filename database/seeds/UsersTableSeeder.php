@@ -11,12 +11,12 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $user = \App\User::firstOrCreate(['email' => 'jeff@millsmultimedia.net']);
-	    $user->name = 'Jeff Mills';
+        $user = \App\User::firstOrCreate(['email' => 'admin@admin.com']);
+	    $user->name = 'Jeff';
 	    $user->business_name = 'Admin';
 	    $user->package_hours = 0;
-	    $user->email = 'jeff@millsmultimedia.net';
-	    $user->password = \Hash::make('123456');
+	    $user->email = 'admin@admin.com';
+	    $user->password = \Hash::make('helloworld');
 	    $user->save();
 
         $user = \App\User::firstOrCreate(['email' => 'jill@harvard.edu']);
@@ -32,6 +32,14 @@ class UsersTableSeeder extends Seeder
 	    $user->business_name = 'The Brand Mentors';
 	    $user->package_hours = 15;
 	    $user->email = 'jamal@harvard.edu';
+	    $user->password = \Hash::make('helloworld');
+	    $user->save();
+
+	    $user = \App\User::firstOrCreate(['email' => 'sample@sample.com']);
+	    $user->name = 'Celest';
+	    $user->business_name = 'BBB San Francisco';
+	    $user->package_hours = 10;
+	    $user->email = 'sample@sample.com';
 	    $user->password = \Hash::make('helloworld');
 	    $user->save();
     }

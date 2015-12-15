@@ -34,15 +34,15 @@ such as a page specific styesheets.
         <th width="50px;"></th>
     </tr>
 
-    @foreach($accounts as $account) 
-        @if( $account->id != 1) <!-- Skip the admin account -->
-            <tr id="{{ $account->id }}">
-                <td><a href="/tasks/{{ $account->id }}">{{ $account->business_name }}</a></td>
-                <td>{{ $account->package_hours }}</td>
-                <td>{{ $account->name }}</td>
-                <td><a href="mailto:{{ $account->email }}">{{ $account->email }}</a></td>
-                <td><button name="{{$account->id}}" class="btn btn-warning edit_acct"><span title="Edit" class="glyphicon glyphicon-pencil"></span></button>
-                <td><button name="{{$account->id}}" class="btn btn-danger delete_acct"><span title="Delete" class="glyphicon glyphicon-remove"></span></button>
+    @foreach($users as $user) 
+        @if( $user->id != 1) <!-- Skip the admin account -->
+            <tr id="{{ $user->id }}">
+                <td><a href="/tasks/{{ $user->id }}">{{ $user->business_name }}</a></td>
+                <td>{{ $user->package_hours }}</td>
+                <td>{{ $user->name }}</td>
+                <td><a href="mailto:{{ $user->email }}">{{ $user->email }}</a></td>
+                <td><button name="{{$user->id}}" class="btn btn-warning edit_acct"><span title="Edit" class="glyphicon glyphicon-pencil"></span></button>
+                <td><button name="{{$user->id}}" class="btn btn-danger delete_acct"><span title="Delete" class="glyphicon glyphicon-remove"></span></button>
             </tr>
         @endif
     @endforeach 

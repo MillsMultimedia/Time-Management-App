@@ -18,7 +18,7 @@ such as a page specific styesheets.
 @section('header')
     <div class="pull-right" id="logout">
     	@if($is_admin)
-	    	<a href="/admin" class="header_links">User Accounts</a>
+	    	<a href="/admin" class="header_links" style="border-right:1px solid #ddd">User Accounts</a>
 	    @endif
         <a href="/logout" class="text-right header_links">Log Out</a>
     </div>
