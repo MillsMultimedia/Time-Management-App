@@ -12,6 +12,7 @@ Task List Page - Admin View
 //unhide the form to add a new task
 $('#add_update').click( function(evt) {
 	$('.add_new').slideDown("slow");
+	$('#add_update').toggle();
 });
 
 
@@ -83,6 +84,14 @@ $('.delete_acct').click( function(evt) {
 	if (confirm == 'DELETE')
 		window.location.replace("/admin/delete/"+$(this).attr('name'));
 });
+
+
+/**********************************
+Some styling
+**********************************/
+var margin = $('header').height()/2 - 8;
+
+$('.header_links').css('margin-top', margin);
 
 
 }); //end document ready

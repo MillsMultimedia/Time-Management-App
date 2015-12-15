@@ -15,7 +15,14 @@ such as a page specific styesheets.
 
 @stop
  
-
+@section('header')
+    <div class="pull-right" id="logout">
+    	@if($is_admin)
+	    	<a href="/admin" class="header_links">User Accounts</a>
+	    @endif
+        <a href="/logout" class="text-right header_links">Log Out</a>
+    </div>
+@stop
 
 @section('content')
 
@@ -38,8 +45,8 @@ such as a page specific styesheets.
 		            <td>{{ $task->hours_spent }}</td>
 		            <?php $total_hours += $task->hours_spent ?>
 		            @if($is_admin)
-			            <td><button name="{{ $task->id }}" class="btn btn-warning edit_btn">Edit</button></td>
-			            <td><button name="{{ $task->id }}" data-account="{{ $user->id }}" class="btn btn-danger delete_btn">Delete</button></td>
+			            <td><button name="{{ $task->id }}" class="btn btn-warning edit_btn"><span title="Edit" class="glyphicon glyphicon-pencil"></span></button></td>
+			            <td><button name="{{ $task->id }}" data-account="{{ $user->id }}" class="btn btn-danger delete_btn"><span title="Delete" class="glyphicon glyphicon-remove"></span></button></td>
 		        	@else
 			        	<td></td>
 			        	<td></td>
@@ -68,7 +75,7 @@ such as a page specific styesheets.
 				        <td><span class="cancel_btn">Cancel</span></td>
 				        <td><input type="text" name="description" id="description" /></td>
 				        <td><input type="text" name="hrs_used" id="hrs_used" /></td>
-				        <td><button type="submit" class="btn btn-primary">Add</button></td>
+				        <td><button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span></button></td>
 				        <td></td>
 				        <input type="hidden" name="account_id" value="{{ $user->id }}"/>
 					</form>
@@ -76,6 +83,12 @@ such as a page specific styesheets.
 		    @endif
 
 		</table>
+
+	<div class="row">
+		@if($is_admin)
+			<p class="col-xs-12 text-right"><span id="add_update">Add New Task</span></p>
+		@endif
+	</div>
 
 
 
@@ -87,13 +100,10 @@ such as a page specific styesheets.
 		<h3 class="col-xs-12 col-sm-6">Hours Remaining: 
 			{{ $user->package_hours - $total_hours }}
 		</h3>
+		<hr class="col-xs-12">
 	@endif
 	
-	@if($is_admin)
-		<p><span id="add_update">Add New Task</span></p>
 
-		<p><a href="/admin">User Accounts</a></p>
-	@endif
 @stop
   
 

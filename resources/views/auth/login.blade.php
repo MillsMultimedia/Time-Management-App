@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <p>Don't have an account? <a href='/register'>Register here...</a></p>
+<div class='col-md-4 col-md-offset-4 col-sm-12 col-sm-offset-0'>
 
     <h1>Login</h1>
 
@@ -36,4 +36,11 @@
         <button type='submit' class='btn btn-primary'>Login</button>
 
     </form>
+
+    <hr class="col-xs-12">
+
+    <p>Don't have an account? <a href='/register'>Register Here</a></p>
+
+</div>
+
 @stop

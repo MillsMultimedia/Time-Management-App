@@ -15,7 +15,11 @@ such as a page specific styesheets.
 
 @stop
 
-
+@section('header')
+    <div class="pull-right" id="logout">
+        <a href="/logout" class="text-right header_links">Log Out</a>
+    </div>
+@stop
 
 @section('content')
 <h1>Overview</h1>
@@ -31,14 +35,16 @@ such as a page specific styesheets.
     </tr>
 
     @foreach($accounts as $account) 
-        <tr id="{{ $account->id }}">
-            <td><a href="/tasks/{{ $account->id }}">{{ $account->business_name }}</a></td>
-            <td>{{ $account->package_hours }}</td>
-            <td>{{ $account->name }}</td>
-            <td><a href="mailto:{{ $account->email }}">{{ $account->email }}</a></td>
-            <td><button name="{{$account->id}}" class="btn btn-warning edit_acct">edit</button>
-            <td><button name="{{$account->id}}" class="btn btn-danger delete_acct">delete</button>
-        </tr>
+        @if( $account->id != 1) <!-- Skip the admin account -->
+            <tr id="{{ $account->id }}">
+                <td><a href="/tasks/{{ $account->id }}">{{ $account->business_name }}</a></td>
+                <td>{{ $account->package_hours }}</td>
+                <td>{{ $account->name }}</td>
+                <td><a href="mailto:{{ $account->email }}">{{ $account->email }}</a></td>
+                <td><button name="{{$account->id}}" class="btn btn-warning edit_acct"><span title="Edit" class="glyphicon glyphicon-pencil"></span></button>
+                <td><button name="{{$account->id}}" class="btn btn-danger delete_acct"><span title="Delete" class="glyphicon glyphicon-remove"></span></button>
+            </tr>
+        @endif
     @endforeach 
 
     <tr class="edit_account">
@@ -62,6 +68,8 @@ such as a page specific styesheets.
     </tr>
 
 </table>
+
+<hr class="col-xs-12">
 
 @stop
   

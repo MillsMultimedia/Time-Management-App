@@ -6,25 +6,20 @@ input {
 	width:90%;
 }
 
-.edit_btn, .delete_btn, .edit_acct, .delete_acct {
-	height: 20px;
-	padding: 0;
-	font-size: 75%;
+a {
+	text-decoration: underline;
 }
 
-.cancel_btn {
-	color: #337ab7;
-    text-decoration: underline;
+header {
+	width: 100%;
+	background-color: #000;
+	color: #ddd;
+	padding: 8px;
 }
 
-#add_account, #add_update {
-	color: #337ab7;
-	text-decoration:underline;
-	margin-left:8px;
-}
-
-.add_new, .edit_task, .edit_account {
-	display: none;
+.header_links {
+	padding: 0 10px;
+	border-left: 1px solid #ddd;
 }
 
 .flash_message {
@@ -35,4 +30,35 @@ input {
 	border-radius: 0 0 8px 8px;
 	text-align: center;
 	padding: 5px;
+}
+
+.no-margin {
+	margin:0;
+}
+
+.edit_btn, .delete_btn, .edit_acct, .delete_acct {
+	height: 20px;
+	padding: 3px;
+	font-size: 75%;
+}
+
+.cancel_btn {
+	color: #337ab7;
+    text-decoration: underline;
+}
+
+#add_update {
+	color: #337ab7;
+	text-decoration:underline;
+	margin-right:18px;
+}
+
+.add_new, .edit_task, .edit_account {
+	display: none;
+}
+
+#logout a{
+	color: #ddd;
+	text-decoration: none;
+	display: inline-block;
 }

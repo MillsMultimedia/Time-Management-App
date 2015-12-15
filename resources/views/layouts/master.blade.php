@@ -17,6 +17,16 @@
 
 <body>
 
+	<header>
+		<div class="col-xs-6">
+	    	<h4 class="no-margin"><img src="/img/logo.png"/> Time Tracking</h4>
+	    </div>
+    	<div class="col-xs-6">
+	    	@yield('header')
+	    </div>
+	    <div class="clearfix"></div>
+    </header>
+
 	@if(\Session::has('flash_message'))
         <div class='flash_message'>
             {{ \Session::get('flash_message') }}
@@ -27,7 +37,6 @@
 	        {{-- Main page content will be yielded here --}}
 	        @yield('content')
 
-	        <a href="/logout" class="pull-right">Log Out</a>
 	</section>
 
 

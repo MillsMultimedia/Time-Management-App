@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 class WelcomeController extends Controller
 {
     public function getIndex() {
+        
         if(\Auth::check()) {
 
             if(\Auth::user()->id == 1)
@@ -21,4 +22,5 @@ class WelcomeController extends Controller
         \Session::flash('flash_message', 'Please log in to continue.');
         return redirect()->to('login');
     }
+
 }
