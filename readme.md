@@ -1,27 +1,30 @@
-## Laravel PHP Framework
+# Project 4
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+## Live URL
+<http://p4.jeffreylmills.me>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
 
-## Official Documentation
+## Description
+This is a time tracking app for me to keep up with web administration clients. I can log in, add to the tasks for individual accounts.
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+Clients can register and view their account seeing how much time their requests have taken and how much time they have left in their monthly package.
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
 
-## Security Vulnerabilities
+## Demo
+TBA
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
 
-### License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+## Details for teaching team
+The idea for this would be a sub-domain or sub-folder on my website. So, I didn't feel the need to add a landing page.
+
+Instead I take users straight to the login page. Once logged in, clients are redirected to the tasks list for their account and the admin user is taken to the client overview page.
+
+The two required users are set up as clients and the admin login is admin@admin.com. All users have the same password, 'helloworld'.
+
+
+
+## Outside code
+* Bootstrap: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js
