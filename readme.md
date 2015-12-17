@@ -13,7 +13,8 @@ Clients can register and view their account seeing how much time their requests 
 
 
 ## Demo
-<http://www.screencast.com/t/gXuvHY9In>
+<http://www.screencast.com/t/gXuvHY9In> - Having a weird issue with quicktime plugin on my Mac and on a PC
+<https://youtu.be/-P7ArhkrEWk> - Added to YouTube as a backup
 
 
 
