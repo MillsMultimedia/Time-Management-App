@@ -39,7 +39,8 @@
 
     <hr class="col-xs-12">
 
-    <p>Don't have an account? <a href='/register'>Register Here</a></p>
+    <p>To see a sample client view use:<br>UN: <span style="color:#2e6da4;">metropolis@sample.com</span><br>PW: <span style="color:#2e6da4;">Superman1</span></p>
+    <p>To see a sample admin view,<br>please contact <a href="http://www.millsmultimedia.net">Mills Multimedia</a>.
 
 </div>
 

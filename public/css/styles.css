@@ -61,3 +61,10 @@ header {
 	text-decoration: none;
 	display: inline-block;
 }
+
+.return {
+	margin-top: 5em;
+	padding-top: 1.5em;
+	border-top: 1px solid #333;
+	text-align: center;
+}
